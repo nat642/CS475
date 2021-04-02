@@ -1,0 +1,10 @@
+" Inmate turnover rate and estimated average time in jail, by size of jurisdiction, 2018",,,,,,,
+Jail jurisdiction size (ADP),,Average daily population/a,Annual admissions,Weekly inmate-turnover rate/b,,Estimated average time in jail/c,
+,Total,"737,900","10,675,400",54.9,%,25.2, days
+Less than 50 inmates,,"22,800","744,100",124.7,,11.2,
+50-99,,"37,100","753,600",75.9,,17.9,
+100-249,,"106,700","1,895,200",67.1,,20.5,
+250-499,,"112,100","1,605,500",54.8,,25.5,
+500-999,,"144,300","1,994,100",52.1,,26.4,
+"1,000-2,499",,"177,800","2,219,600",47.2,,29.2,
+"2,500 or more*",,"137,100","1,463,300",41,,34.2,
