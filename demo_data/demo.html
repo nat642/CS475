@@ -13,7 +13,7 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
+var margin = {top: 30, right: 30, bottom: 50, left: 80},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -47,6 +47,16 @@ d3.csv("https://raw.githubusercontent.com/nat642/CS475/main/demo_data/demoStateC
       .domain(allGroup)
       .range(d3.schemeSet2);
 
+
+    // Add Tittle
+    svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Total Violent Crimes per Year");
+
     // Add X axis --> it is a date format
     var x = d3.scaleLinear()
       .domain(d3.extent(data, function(d) { return d.Year; }))
@@ -55,12 +65,25 @@ d3.csv("https://raw.githubusercontent.com/nat642/CS475/main/demo_data/demoStateC
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x).ticks(7));
 
+      svg.append("text")             
+      .attr("transform","translate(" + (width/2) + " ," + (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Year");
+
     // Add Y axis
     var y = d3.scaleLinear()
       .domain([0, d3.max(data, function(d) { return +d.TotalsViolentAll; })])
       .range([ height, 0 ]);
     svg.append("g")
       .call(d3.axisLeft(y));
+
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Total Number of Violent Crimes");    
 
     // Initialize line with first group of the list
     var line = svg
