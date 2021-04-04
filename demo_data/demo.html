@@ -55,7 +55,7 @@ d3.csv("https://raw.githubusercontent.com/nat642/CS475/main/demo_data/demoStateC
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
         .style("text-decoration", "underline")  
-        .text("Total Violent Crimes per Year");
+        .text("Population of State");
 
     // Add X axis --> it is a date format
     var x = d3.scaleLinear()
@@ -72,7 +72,7 @@ d3.csv("https://raw.githubusercontent.com/nat642/CS475/main/demo_data/demoStateC
 
     // Add Y axis
     var y = d3.scaleLinear()
-      .domain([0, d3.max(data, function(d) { return +d.TotalsViolentAll; })])
+      .domain([0, d3.max(data, function(d) { return +d.Population; })])
       .range([ height, 0 ]);
     svg.append("g")
       .call(d3.axisLeft(y));
@@ -83,7 +83,7 @@ d3.csv("https://raw.githubusercontent.com/nat642/CS475/main/demo_data/demoStateC
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .text("Total Number of Violent Crimes");    
+      .text("Population");    
 
     // Initialize line with first group of the list
     var line = svg
@@ -92,7 +92,7 @@ d3.csv("https://raw.githubusercontent.com/nat642/CS475/main/demo_data/demoStateC
         .datum(data.filter(function(d){return d.State==allGroup[0]}))
         .attr("d", d3.line()
           .x(function(d) { return x(d.Year) })
-          .y(function(d) { return y(+d.TotalsViolentAll) })
+          .y(function(d) { return y(+d.Population) })
         )
         .attr("stroke", function(d){ return myColor("valueA") })
         .style("stroke-width", 4)
@@ -111,7 +111,7 @@ d3.csv("https://raw.githubusercontent.com/nat642/CS475/main/demo_data/demoStateC
           .duration(1000)
           .attr("d", d3.line()
             .x(function(d) { return x(d.Year) })
-            .y(function(d) { return y(+d.TotalsViolentAll) })
+            .y(function(d) { return y(+d.Population) })
           )
           .attr("stroke", function(d){ return myColor(selectedGroup) })
     }
