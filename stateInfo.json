@@ -4,7 +4,7 @@
     {
       "type": "Feature",
       "id": "01",
-      "properties": { "name": "Alabama", "population" : 1000000 },
+      "properties": { "name": "Alabama"},
       "geometry": {
         "type": "Polygon",
         "coordinates": [
