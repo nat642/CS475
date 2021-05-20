@@ -1,0 +1,95 @@
+@charset "UTF-8";
+body {
+  font-family: 'Georgia', sans-serif;
+  font-size: 100%;
+  background-color: white;
+}
+
+/*Grid Styles*/
+#layout {
+  display: grid;
+  grid-template-rows: [header-start] 100px [header-end content-start] 600px [content-end footer-start] 100px; 
+  grid-template-columns: [main] 1fr [links] 3fr;
+  grid-gap: 10px 20px;
+  grid-template-areas: 
+    "header  header"
+    "links main"
+    "footer  footer";
+  padding: 1em;
+  background-color: #646464;
+}
+#layout div {border: solid thin black; font-family: Nunito; color: black; padding: 1em; }
+
+#one { 
+  grid-area: header;
+  text-align: center;
+  font-size: 32px;
+
+}
+#two {
+  grid-area: links;
+  font-size: 24px;
+}
+
+#three {
+  grid-area: main; 
+  text-align: center;
+}
+
+#four {
+  grid-area: footer;
+  font-size: 22px;
+  text-align: center;
+}
+
+#one, #two, #three, #four{background: white}
+
+/*Nav Styles*/
+
+a{
+  text-align: center;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+nav ul li a {
+  display: block;
+  border: 1px solid;
+  border-radius: .5em;
+  padding: .5em 1em;
+  margin: .5em;
+}
+
+nav ul li a:link, nav ul li a:visited {
+  color: #646464;
+}
+nav ul li a:focus, nav ul li a:hover, nav ul li a:active {
+  color: black;
+}
+
+figure {
+  border: 1px black solid;
+  border-radius: .5em;
+  padding: 4px;
+  
+
+}
+
+figcaption {
+  color: #646464;
+  font-size: 28px;
+  padding: 2px;
+  text-align: center;
+}
+
+img{
+  transition: transform 3s;
+
+}
